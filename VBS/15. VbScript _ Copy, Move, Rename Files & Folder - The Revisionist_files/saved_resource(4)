@@ -1,0 +1,14 @@
+/**/ a2a.counters.facebook.cb1({
+   "share": {
+      "comment_count": 0,
+      "share_count": 0
+   },
+   "og_object": {
+      "id": "1004158256349722",
+      "description": "Below is the format of the script to copy and to move the files and folders. Note that the root command is CreateObject(\u201cScripting.FileSystemObject\u201d):",
+      "title": "15. VbScript | Copy, Move, Rename Files & Folder \u2013 The Revisionist",
+      "type": "website",
+      "updated_time": "2016-08-19T06:57:21+0000"
+   },
+   "id": "https://therevisionist.org/software-engineering/vbscript-tutorials/15-vbscript-copy-move-rename-files-folder/"
+});

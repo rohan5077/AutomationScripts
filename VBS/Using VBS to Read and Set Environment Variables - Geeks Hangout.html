@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+			
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="pingback" href="https://www.geekshangout.com/xmlrpc.php">
+
+		<!--[if lt IE 9]>
+	<script src="https://www.geekshangout.com/wp-content/themes/Extra/scripts/ext/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+
+	<script>var et_site_url='https://www.geekshangout.com';var et_post_id='40';function et_core_page_resource_fallback(a,b){"undefined"===typeof b&&(b=a.sheet.cssRules&&0===a.sheet.cssRules.length);b&&(a.onerror=null,a.onload=null,a.href?a.href=et_site_url+"/?et_core_page_resource="+a.id+et_post_id:a.src&&(a.src=et_site_url+"/?et_core_page_resource="+a.id+et_post_id))}
+</script><title>Using VBS to Read and Set Environment Variables - Geeks Hangout</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v8.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using VBS to Read and Set Environment Variables - Geeks Hangout">
+<meta property="og:description" content="Below are a few basic examples of how to read and set Environment Variables using a VBS Script. Create a new Permanent System Environment Variable The below example creates a new permanent System Environment variable called “test” with the value “Hello World!” If you get an Access Denied message on Vista the fault of “User …">
+<meta property="og:url" content="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+<meta property="og:site_name" content="Geeks Hangout">
+<meta property="article:section" content="Scripts">
+<meta property="article:published_time" content="2009-07-21T07:10:25+00:00">
+<meta property="article:modified_time" content="2015-12-21T21:31:20+00:00">
+<meta property="og:updated_time" content="2015-12-21T21:31:20+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Below are a few basic examples of how to read and set Environment Variables using a VBS Script. Create a new Permanent System Environment Variable The below example creates a new permanent System Environment variable called “test” with the value “Hello World!” If you get an Access Denied message on Vista the fault of “User […]">
+<meta name="twitter:title" content="Using VBS to Read and Set Environment Variables - Geeks Hangout">
+<meta name="twitter:site" content="@geekshangout">
+<meta name="twitter:creator" content="@geekshangout">
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Person","url":"https:\/\/www.geekshangout.com\/","sameAs":["https:\/\/twitter.com\/geekshangout"],"@id":"#person","name":"Phil Eddies"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="amphtml" href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/amp/"><link rel="dns-prefetch" href="https://www.geekshangout.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Geeks Hangout » Feed" href="https://www.geekshangout.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Geeks Hangout » Comments Feed" href="https://www.geekshangout.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Geeks Hangout » Using VBS to Read and Set Environment Variables Comments Feed" href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.geekshangout.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<meta content="Extra v.2.12.2" name="generator"><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-notice-front-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/front.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="et_monarch-css-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="et-gf-open-sans-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="extra-fonts-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="extra-style-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="ecae-frontend-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/style-frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="ecae-buttonskin-none-css" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/ecae-buttonskin-none.css" type="text/css" media="all">
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/www.geekshangout.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/crayon.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var cnArgs = {"ajaxurl":"https:\/\/www.geekshangout.com\/wp-admin\/admin-ajax.php","hideEffect":"fade","onScroll":"no","onScrollOffset":"100","cookieName":"cookie_notice_accepted","cookieValue":"true","cookieTime":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"","cache":"1","refuse":"no","revoke_cookies":"0","revoke_cookies_opt":"automatic","secure":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/front.min.js.download"></script>
+<link rel="https://api.w.org/" href="https://www.geekshangout.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.geekshangout.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.geekshangout.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.9.8">
+<link rel="shortlink" href="https://www.geekshangout.com/?p=40">
+<link rel="alternate" type="application/json+oembed" href="https://www.geekshangout.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.geekshangout.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;format=xml">
+<style type="text/css" id="et-social-custom-css">
+				 
+			</style><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"><link rel="stylesheet" id="et-extra-customizer-global-cached-inline-styles" href="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/et-extra-customizer-global-1535109167104.min.css" onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)"><style>[data-columns]::before{visibility:hidden;position:absolute;font-size:1px;}</style><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+<body class="post-template-default single single-post postid-40 single-format-standard et_monarch et_extra et_fixed_nav et_pb_gutters2 et_primary_nav_dropdown_animation_Default et_secondary_nav_dropdown_animation_Default with_sidebar with_sidebar_right et_includes_sidebar et-db et_minified_js et_minified_css cookies-not-set chrome">
+	<div id="page-container" class="page-container et-fixed-header">
+				<!-- Header -->
+		<header class="header left-right">
+						<!-- #top-header -->
+			<div id="top-header" style="">
+				<div class="container">
+
+					<!-- Secondary Nav -->
+											<div id="et-secondary-nav" class="">
+												</div>
+					
+					<!-- #et-info -->
+					<div id="et-info">
+
+						
+						<!-- .et-extra-social-icons -->
+						<ul class="et-extra-social-icons" style="">
+																																																																													<li class="et-extra-social-icon twitter">
+									<a href="https://twitter.com/GeeksHangout" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-twitter"></a>
+								</li>
+																																																																																																																																																																																																																																																																																																							<li class="et-extra-social-icon linkedin">
+									<a href="https://www.linkedin.com/in/phileddies/" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-linkedin"></a>
+								</li>
+																																															<li class="et-extra-social-icon rss">
+									<a href="http://www.geekshangout.com/feed/" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-rss"></a>
+								</li>
+																																																																																																																																																																																																																																																																																																												</ul>
+						
+						<!-- .et-top-search -->
+												<div class="et-top-search" style="">
+							<form role="search" class="et-search-form" method="get" action="https://www.geekshangout.com/">
+			<input type="search" class="et-search-field" placeholder="Search" value="" name="s" title="Search for:">
+			<button class="et-search-submit"></button>
+		</form>						</div>
+						
+						<!-- cart -->
+											</div>
+				</div><!-- /.container -->
+			</div><!-- /#top-header -->
+
+			
+			<!-- Main Header -->
+			<div id="main-header-wrapper" style="height: 80px;">
+				<div id="main-header" data-fixed-height="80">
+					<div class="container">
+					<!-- ET Ad -->
+						
+						
+						<!-- Logo -->
+						<a class="logo" href="https://www.geekshangout.com/" data-fixed-height="51" style="width: 258px;" data-fixed-width="258.1875" data-initial-width="405" data-initial-height="64">
+							<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/geeklogo2.svg" alt="Geeks Hangout" id="logo">
+						</a>
+
+						
+						<!-- ET Navigation -->
+						<div id="et-navigation" class="">
+															<ul id="et-menu" class="nav">
+									
+																			<li class="cat-item cat-item-83"><a href="https://www.geekshangout.com/category/certifications/">Certifications</a>
+</li>
+	<li class="cat-item cat-item-153"><a href="https://www.geekshangout.com/category/retro-bits/">Retro Bits</a>
+</li>
+	<li class="cat-item cat-item-157"><a href="https://www.geekshangout.com/category/reviews/">Reviews</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="https://www.geekshangout.com/category/scripts/">Scripts</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="https://www.geekshangout.com/category/solutions/">Solutions</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="https://www.geekshangout.com/category/tips/">Tips</a>
+</li>
+								</ul>
+														<div id="et-mobile-navigation">
+			<span class="show-menu">
+				<div class="show-menu-button">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<p>Select Page</p>
+			</span>
+			<nav>
+			<div id="et-info">
+
+						
+						<!-- .et-extra-social-icons -->
+						<ul class="et-extra-social-icons" style="">
+																																																																													<li class="et-extra-social-icon twitter">
+									<a href="https://twitter.com/GeeksHangout" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-twitter"></a>
+								</li>
+																																																																																																																																																																																																																																																																																																							<li class="et-extra-social-icon linkedin">
+									<a href="https://www.linkedin.com/in/phileddies/" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-linkedin"></a>
+								</li>
+																																															<li class="et-extra-social-icon rss">
+									<a href="http://www.geekshangout.com/feed/" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-rss"></a>
+								</li>
+																																																																																																																																																																																																																																																																																																												</ul>
+						
+						<!-- .et-top-search -->
+												<div class="et-top-search" style="">
+							<form role="search" class="et-search-form" method="get" action="https://www.geekshangout.com/">
+			<input type="search" class="et-search-field" placeholder="Search" value="" name="s" title="Search for:">
+			<button class="et-search-submit"></button>
+		</form>						</div>
+						
+						<!-- cart -->
+											</div><ul id="et-extra-mobile-menu" class="et_extra_mobile_menu">
+									
+																			<li class="cat-item cat-item-83 et_first_mobile_item"><a href="https://www.geekshangout.com/category/certifications/">Certifications</a>
+</li>
+	<li class="cat-item cat-item-153"><a href="https://www.geekshangout.com/category/retro-bits/">Retro Bits</a>
+</li>
+	<li class="cat-item cat-item-157"><a href="https://www.geekshangout.com/category/reviews/">Reviews</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="https://www.geekshangout.com/category/scripts/">Scripts</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="https://www.geekshangout.com/category/solutions/">Solutions</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="https://www.geekshangout.com/category/tips/">Tips</a>
+</li>
+								</ul></nav>
+		</div> <!-- /#et-mobile-navigation -->						</div><!-- /#et-navigation -->
+					</div><!-- /.container -->
+				</div><!-- /#main-header -->
+			</div><!-- /#main-header-wrapper -->
+
+		</header>
+
+						<div class="container">
+			<div class="et_pb_extra_row etad header_below">
+				<div class="adsense-responsive-ad">
+<script async="" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/f.txt"></script>
+<!-- Geeks: Site Top Responsive -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5916677449126282" data-ad-slot="4072906698" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>			</div>
+		</div>
+		<div id="main-content">
+		<div class="container">
+		<div id="content-area" class="clearfix">
+			<div class="et_pb_extra_column_main">
+																<article id="post-40" class="module single-post-module post-40 post type-post status-publish format-standard hentry category-scripts category-windows-scripts et-doesnt-have-format-content et_post_format-et-post-format-standard">
+														<div class="post-header">
+								<h1 class="entry-title">Using VBS to Read and Set Environment Variables</h1>
+								<div class="post-meta vcard">
+									<p>Posted by <a href="https://www.geekshangout.com/author/phileddies/" class="url fn" title="Posts by PhilEddies" rel="author">PhilEddies</a> | <span class="updated">Jul 21, 2009</span> | <a href="https://www.geekshangout.com/category/scripts/" rel="tag">Scripts</a>, <a href="https://www.geekshangout.com/category/scripts/windows-scripts/" rel="tag">Windows</a> | <a class="comments-link" href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#comments">0 <span title="comment count" class="comment-bubble post-meta-icon"></span></a> | <span class="rating-stars" title="Rating: 4.00"><span class="post-meta-icon rating-star rating-star-on rating-star-1"></span>
+<span class="post-meta-icon rating-star rating-star-on rating-star-2"></span>
+<span class="post-meta-icon rating-star rating-star-on rating-star-3"></span>
+<span class="post-meta-icon rating-star rating-star-on rating-star-4"></span>
+<span class="post-meta-icon rating-star rating-star-empty rating-star-5"></span>
+</span></p>
+								</div>
+							</div>
+							
+							
+														
+							<div class="post-wrap">
+															<div class="post-content entry-content">
+									<p>Below are a few basic examples of how to read and set Environment Variables using a VBS Script.</p>
+<h2>Create a new Permanent System Environment Variable</h2>
+<p>The below example creates a new permanent System Environment variable called “test” with the value “Hello World!”</p>
+<p>If you get an Access Denied message on Vista the fault of “User Account Control”</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b801d18e3fbf511696389" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Visual Basic</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important; margin-top: -20px; display: none;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 16px !important; z-index: 0; opacity: 0;">Set objShell = CreateObject("WScript.Shell")
+Set objEnv = objShell.Environment("SYSTEM")
+ 
+objEnv("test") = "Hello World!"</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5b801d18e3fbf511696389-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fbf511696389-2">2</div><div class="crayon-num" data-line="crayon-5b801d18e3fbf511696389-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fbf511696389-4">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b801d18e3fbf511696389-1"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">CreateObject</span><span class="crayon-sy">(</span><span class="crayon-s">"WScript.Shell"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fbf511696389-2"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objEnv</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-sy">.</span><span class="crayon-e">Environment</span><span class="crayon-sy">(</span><span class="crayon-s">"SYSTEM"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b801d18e3fbf511696389-3"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fbf511696389-4"><span class="crayon-e">objEnv</span><span class="crayon-sy">(</span><span class="crayon-s">"test"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"Hello World!"</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0007 seconds] -->
+<p></p>
+<h2>Create a new Permanent&nbsp;User Environment Variable</h2>
+<p>The below example creates a new permanent&nbsp;User Environment variable called “test” with the value “Hello World!”</p>
+<p>If you get an Access Denied message on Vista the fault of “User Account Control”</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b801d18e3fc5781619070" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Visual Basic</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important; margin-top: -20px; display: none;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 16px !important; z-index: 0; opacity: 0;">Set objShell = CreateObject("WScript.Shell")
+Set objEnv = objShell.Environment("USER")
+ 
+objEnv("test") = "Hello World!"</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5b801d18e3fc5781619070-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fc5781619070-2">2</div><div class="crayon-num" data-line="crayon-5b801d18e3fc5781619070-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fc5781619070-4">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b801d18e3fc5781619070-1"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">CreateObject</span><span class="crayon-sy">(</span><span class="crayon-s">"WScript.Shell"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fc5781619070-2"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objEnv</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-sy">.</span><span class="crayon-e">Environment</span><span class="crayon-sy">(</span><span class="crayon-s">"USER"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b801d18e3fc5781619070-3"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fc5781619070-4"><span class="crayon-e">objEnv</span><span class="crayon-sy">(</span><span class="crayon-s">"test"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"Hello World!"</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<h2>Reading a System Environment Variable</h2>
+<p>The below example shows how to read a&nbsp;System Environment Variable called “test”</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b801d18e3fc8184226750" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Visual Basic</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important; margin-top: -20px; display: none;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 16px !important; z-index: 0; opacity: 0;">Set objShell = CreateObject("WScript.Shell")
+Set objEnv = objShell.Environment("System")
+ 
+wscript.echo objEnv("test")</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5b801d18e3fc8184226750-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fc8184226750-2">2</div><div class="crayon-num" data-line="crayon-5b801d18e3fc8184226750-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fc8184226750-4">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b801d18e3fc8184226750-1"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">CreateObject</span><span class="crayon-sy">(</span><span class="crayon-s">"WScript.Shell"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fc8184226750-2"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objEnv</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-sy">.</span><span class="crayon-e">Environment</span><span class="crayon-sy">(</span><span class="crayon-s">"System"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b801d18e3fc8184226750-3"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fc8184226750-4"><span class="crayon-v">wscript</span><span class="crayon-sy">.</span><span class="crayon-e">echo </span><span class="crayon-e">objEnv</span><span class="crayon-sy">(</span><span class="crayon-s">"test"</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<h2>Reading a&nbsp;User Environment Variable</h2>
+<p>The below example shows how to read a&nbsp;User Environment Variable called “test”</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b801d18e3fcb504740250" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Visual Basic</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 16px !important; z-index: 0; opacity: 0;">Set objShell = CreateObject("WScript.Shell")
+Set objEnv = objShell.Environment("User")
+ 
+wscript.echo objEnv("test")</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5b801d18e3fcb504740250-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcb504740250-2">2</div><div class="crayon-num" data-line="crayon-5b801d18e3fcb504740250-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcb504740250-4">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b801d18e3fcb504740250-1"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">CreateObject</span><span class="crayon-sy">(</span><span class="crayon-s">"WScript.Shell"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcb504740250-2"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objEnv</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-sy">.</span><span class="crayon-e">Environment</span><span class="crayon-sy">(</span><span class="crayon-s">"User"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b801d18e3fcb504740250-3"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcb504740250-4"><span class="crayon-v">wscript</span><span class="crayon-sy">.</span><span class="crayon-e">echo </span><span class="crayon-e">objEnv</span><span class="crayon-sy">(</span><span class="crayon-s">"test"</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<h2>Practical Example: Appending to the System Environment Variable “Path”</h2>
+<p>One of my more common reasons for playing around with Environment Variables</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b801d18e3fcd376846184" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Visual Basic</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 16px !important; z-index: 0; opacity: 0;">Set objShell = CreateObject("WScript.Shell")
+Set objEnv = objShell.Environment("System")
+ 
+'What we want to add
+PathToAdd = "C:\Program Files\IBM\Lotus\Notes"
+ 
+'Get the current value of Path
+oldSystemPath = objEnv("PATH")
+ 
+'Build the new Path
+newSystemPath = oldSystemPath &amp; ";" &amp; PathToAdd
+ 
+'Set the new Path
+objEnv("PATH") = newSystemPath
+ 
+wscript.echo "Complete"</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-2">2</div><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-4">4</div><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-6">6</div><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-8">8</div><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-10">10</div><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-12">12</div><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-14">14</div><div class="crayon-num" data-line="crayon-5b801d18e3fcd376846184-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b801d18e3fcd376846184-16">16</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-1"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">CreateObject</span><span class="crayon-sy">(</span><span class="crayon-s">"WScript.Shell"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-2"><span class="crayon-t">Set</span><span class="crayon-h"> </span><span class="crayon-v">objEnv</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">objShell</span><span class="crayon-sy">.</span><span class="crayon-e">Environment</span><span class="crayon-sy">(</span><span class="crayon-s">"System"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-3"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-4"><span class="crayon-c">'What we want to add</span></div><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-5"><span class="crayon-v">PathToAdd</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"C:\Program Files\IBM\Lotus\Notes"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-6"><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-7"><span class="crayon-c">'Get the current value of Path</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-8"><span class="crayon-v">oldSystemPath</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">objEnv</span><span class="crayon-sy">(</span><span class="crayon-s">"PATH"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-9"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-10"><span class="crayon-c">'Build the new Path</span></div><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-11"><span class="crayon-v">newSystemPath</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">oldSystemPath</span><span class="crayon-h"> </span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-s">";"</span><span class="crayon-h"> </span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-i">PathToAdd</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-12"><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-13"><span class="crayon-c">'Set the new Path</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-14"><span class="crayon-e">objEnv</span><span class="crayon-sy">(</span><span class="crayon-s">"PATH"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">newSystemPath</span></div><div class="crayon-line" id="crayon-5b801d18e3fcd376846184-15"><span class="crayon-e"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b801d18e3fcd376846184-16"><span class="crayon-v">wscript</span><span class="crayon-sy">.</span><span class="crayon-i">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Complete"</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0011 seconds] -->
+<p>&nbsp;</p>
+<span class="et_social_bottom_trigger"></span>																	</div>
+														</div>
+														<div class="post-footer">
+								<div class="social-icons ed-social-share-icons">
+									<p class="share-title">Share:</p>
+									
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.facebook.com/sharer.php?u=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;t=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Facebook" data-network-name="facebook" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-facebook et-extra-icon-background-hover"></span>
+			</a><a href="http://twitter.com/intent/tweet?text=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables%20https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Twitter" data-network-name="twitter" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-twitter et-extra-icon-background-hover"></span>
+			</a><a href="https://plus.google.com/share?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;t=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Google +" data-network-name="googleplus" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-googleplus et-extra-icon-background-hover"></span>
+			</a><a href="https://www.tumblr.com/share?v=3&amp;u=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;t=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Tumblr" data-network-name="tumblr" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-tumblr et-extra-icon-background-hover"></span>
+			</a><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables&amp;media=" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Pinterest" data-network-name="pinterest" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-pinterest et-extra-icon-background-hover"></span>
+			</a><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;title=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via LinkedIn" data-network-name="linkedin" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-linkedin et-extra-icon-background-hover"></span>
+			</a><a href="https://bufferapp.com/add?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;title=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Buffer" data-network-name="buffer" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-buffer et-extra-icon-background-hover"></span>
+			</a><a href="http://www.stumbleupon.com/badge?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;title=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Stumbleupon" data-network-name="stumbleupon" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-stumbleupon et-extra-icon-background-hover"></span>
+			</a><a href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Email" data-network-name="basic_email" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-basic_email et-extra-icon-background-hover"></span>
+			</a><a href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#" class="social-share-link" title="Share &quot;Using VBS to Read and Set Environment Variables&quot; via Print" data-network-name="basic_print" data-share-title="Using VBS to Read and Set Environment Variables" data-share-url="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/">
+				<span class="et-extra-icon et-extra-icon-basic_print et-extra-icon-background-hover"></span>
+			</a>								</div>
+																<div class="rating-stars">
+									<p id="rate-title" class="rate-title">Rate:</p><div id="rating-stars" style="cursor: pointer;"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="1" title="bad" class="rating-star rating-star-1 star-off"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="2" title="poor" class="rating-star rating-star-2 star-off"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="3" title="regular" class="rating-star rating-star-3 star-off"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="4" title="good" class="rating-star rating-star-4 star-off"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="5" title="gorgeous" class="rating-star rating-star-5 star-off"><input type="hidden" name="score"></div><input type="hidden" id="post_id" value="40">								</div>
+																<style type="text/css" id="rating-stars">
+									.post-footer .rating-stars #rated-stars img.star-on,
+									.post-footer .rating-stars #rating-stars img.star-on {
+										background-color: #f29e1a;
+									}
+								</style>
+							</div>
+
+																					<div class="et_pb_extra_row etad post_below">
+								<div class="adsense-responsive-ad">
+<script async="" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/f.txt"></script>
+<!-- Geeks: Site Bottom Responsive -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5916677449126282" data-ad-slot="5549639893" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br><br>
+<script async="" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-5916677449126282" data-ad-slot="6896428841"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>							</div>
+													</article>
+
+						<nav class="post-nav">
+							<div class="nav-links clearfix">
+								<div class="nav-link nav-link-prev">
+									<a href="https://www.geekshangout.com/simple-vbs-script-to-get-a-value-from-the-registry/" rel="prev"><span class="button">Previous</span><span class="title">Simple VBS script to get a value from the registry</span></a>								</div>
+								<div class="nav-link nav-link-next">
+									<a href="https://www.geekshangout.com/setting-microsoft-sccm-2007-sp1-r2-to-report-on-local-printers/" rel="next"><span class="button">Next</span><span class="title">Setting Microsoft SCCM Report on Local Printers</span></a>								</div>
+							</div>
+						</nav>
+												<div class="et_extra_other_module author-box vcard">
+							<div class="author-box-header">
+								<h3>About The Author</h3>
+							</div>
+							<div class="author-box-content clearfix">
+								<div class="author-box-avatar">
+									<img alt="PhilEddies" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/45552bfd5addf183b6c15114111081bc.jpeg" srcset="https://secure.gravatar.com/avatar/45552bfd5addf183b6c15114111081bc?s=340&amp;d=mm&amp;r=g 2x" class="avatar avatar-170 photo" height="170" width="170">								</div>
+								<div class="author-box-description">
+									<h4><a class="author-link url fn" href="https://www.geekshangout.com/author/phileddies/" rel="author" title="View all posts by PhilEddies">PhilEddies</a></h4>
+									<p class="note">I am an IT Operations Manager, managing all aspects of the IT infrastructure and service for a mid sized UK based company. I have been working full time in IT since 2001 in 1st to 3rd line and System Administration roles. MCSA, MCSE, CCNA, Citrix CCA and ITIL certified.</p>
+									<ul class="social-icons">
+																					<li><a href="http://geekshangout/" target="_blank"><span class="et-extra-icon et-extra-icon-twitter et-extra-icon-color-hover"></span></a></li>
+																			</ul>
+								</div>
+							</div>
+						</div>
+						
+										
+				<!-- You can start editing here. -->
+
+<section id="comment-wrap">
+			<div id="comments" class="nocomments">
+			 <!-- If comments are open, but there are no comments. -->
+
+					</div>
+					<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><span>Leave a reply</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.geekshangout.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment" style="display: none;">COMMENT</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author" style="display: none;">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email" style="display: none;">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url" style="display: none;">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="40" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="70dbbd16a0"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1535122716045"></form>
+			</div><!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>	</section>
+			</div><!-- /.et_pb_extra_column.et_pb_extra_column_main -->
+
+			<div class="et_pb_extra_column_sidebar">
+	<div id="categories-2" class="et_pb_widget widget_categories"><h4 class="widgettitle">Categories</h4><form action="https://www.geekshangout.com/" method="get"><label class="screen-reader-text" for="cat">Categories</label><select name="cat" id="cat" class="postform">
+	<option value="-1">Select Category</option>
+	<option class="level-0" value="83">Certifications&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="84">&nbsp;&nbsp;&nbsp;Cisco CCNA&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="153">Retro Bits&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="159">&nbsp;&nbsp;&nbsp;Amstrad CPC&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="156">&nbsp;&nbsp;&nbsp;Atari ST&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="180">&nbsp;&nbsp;&nbsp;Playstation 1&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="157">Reviews&nbsp;&nbsp;(3)</option>
+	<option class="level-0" value="48">Scripts&nbsp;&nbsp;(60)</option>
+	<option class="level-1" value="81">&nbsp;&nbsp;&nbsp;Active Directory&nbsp;&nbsp;(12)</option>
+	<option class="level-1" value="57">&nbsp;&nbsp;&nbsp;Citrix XenApp&nbsp;&nbsp;(3)</option>
+	<option class="level-1" value="78">&nbsp;&nbsp;&nbsp;Lotus Notes \ Domino&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="136">&nbsp;&nbsp;&nbsp;Office365&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="82">&nbsp;&nbsp;&nbsp;PHP&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="49">&nbsp;&nbsp;&nbsp;SQL&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="85">&nbsp;&nbsp;&nbsp;VMware&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="74">&nbsp;&nbsp;&nbsp;Windows&nbsp;&nbsp;(33)</option>
+	<option class="level-0" value="38">Solutions&nbsp;&nbsp;(73)</option>
+	<option class="level-1" value="50">&nbsp;&nbsp;&nbsp;Active Directory&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="46">&nbsp;&nbsp;&nbsp;Backup Exec&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="70">&nbsp;&nbsp;&nbsp;Cisco&nbsp;&nbsp;(9)</option>
+	<option class="level-1" value="62">&nbsp;&nbsp;&nbsp;Citrix Receiver&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="59">&nbsp;&nbsp;&nbsp;Citrix XenApp&nbsp;&nbsp;(9)</option>
+	<option class="level-1" value="64">&nbsp;&nbsp;&nbsp;Internet Explorer&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="39">&nbsp;&nbsp;&nbsp;Kaspersky&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="117">&nbsp;&nbsp;&nbsp;Linux&nbsp;&nbsp;(3)</option>
+	<option class="level-1" value="86">&nbsp;&nbsp;&nbsp;Lotus Notes \ Domino&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="60">&nbsp;&nbsp;&nbsp;Microsoft Office&nbsp;&nbsp;(3)</option>
+	<option class="level-1" value="138">&nbsp;&nbsp;&nbsp;Outlook&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="61">&nbsp;&nbsp;&nbsp;SCCM&nbsp;&nbsp;(6)</option>
+	<option class="level-1" value="168">&nbsp;&nbsp;&nbsp;Skype&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="188">&nbsp;&nbsp;&nbsp;SQL&nbsp;&nbsp;(3)</option>
+	<option class="level-1" value="43">&nbsp;&nbsp;&nbsp;VMware&nbsp;&nbsp;(9)</option>
+	<option class="level-1" value="51">&nbsp;&nbsp;&nbsp;Windows&nbsp;&nbsp;(20)</option>
+	<option class="level-1" value="55">&nbsp;&nbsp;&nbsp;WSUS&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="41">Tips&nbsp;&nbsp;(70)</option>
+	<option class="level-1" value="45">&nbsp;&nbsp;&nbsp;Active Directry&nbsp;&nbsp;(5)</option>
+	<option class="level-1" value="192">&nbsp;&nbsp;&nbsp;Azure&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="69">&nbsp;&nbsp;&nbsp;Cisco&nbsp;&nbsp;(8)</option>
+	<option class="level-1" value="75">&nbsp;&nbsp;&nbsp;Citrix XenApp&nbsp;&nbsp;(3)</option>
+	<option class="level-1" value="42">&nbsp;&nbsp;&nbsp;DB2&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="77">&nbsp;&nbsp;&nbsp;IIS&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="54">&nbsp;&nbsp;&nbsp;Linux&nbsp;&nbsp;(3)</option>
+	<option class="level-1" value="150">&nbsp;&nbsp;&nbsp;Manage Engine Service Desk Plus&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="166">&nbsp;&nbsp;&nbsp;Office 365&nbsp;&nbsp;(7)</option>
+	<option class="level-1" value="137">&nbsp;&nbsp;&nbsp;Office365&nbsp;&nbsp;(3)</option>
+	<option class="level-1" value="87">&nbsp;&nbsp;&nbsp;SCCM&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="67">&nbsp;&nbsp;&nbsp;Software Deployment&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="65">&nbsp;&nbsp;&nbsp;System i / AS/400&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="185">&nbsp;&nbsp;&nbsp;Unity Game Engine&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="63">&nbsp;&nbsp;&nbsp;VMware&nbsp;&nbsp;(7)</option>
+	<option class="level-1" value="52">&nbsp;&nbsp;&nbsp;Windows&nbsp;&nbsp;(20)</option>
+	<option class="level-1" value="76">&nbsp;&nbsp;&nbsp;WSUS&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="189">&nbsp;&nbsp;&nbsp;Zabbix&nbsp;&nbsp;(1)</option>
+</select>
+</form>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "cat" );
+	function onCatChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
+			dropdown.parentNode.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script>
+
+</div> <!-- end .et_pb_widget --><div id="monarchwidget-6" class="et_pb_widget widget_monarchwidget"><h4 class="widgettitle">Follow Me</h4><div class="et_social_networks et_social_3col et_social_slide et_social_rounded et_social_top et_social_mobile_on et_social_withnetworknames et_social_outer_dark widget_monarchwidget">
+					
+					
+					<ul class="et_social_icons_container"><li class="et_social_twitter">
+						<a href="https://twitter.com/GeeksHangout" class="et_social_follow" data-social_name="twitter" data-social_type="follow" data-post_id="40" target="_blank">
+							<i class="et_social_icon et_social_icon_twitter"></i>
+							<div class="et_social_network_label"><div class="et_social_networkname">Twitter</div></div>
+							<span class="et_social_overlay"></span>
+						</a>
+					</li><li class="et_social_linkedin">
+						<a href="https://uk.linkedin.com/in/phileddies" class="et_social_follow" data-social_name="linkedin" data-social_type="follow" data-post_id="40" target="_blank">
+							<i class="et_social_icon et_social_icon_linkedin"></i>
+							<div class="et_social_network_label"><div class="et_social_networkname">LinkedIn</div></div>
+							<span class="et_social_overlay"></span>
+						</a>
+					</li><li class="et_social_rss">
+						<a href="http://www.geekshangout.com/feed/" class="et_social_follow" data-social_name="rss" data-social_type="follow" data-post_id="40" target="_blank">
+							<i class="et_social_icon et_social_icon_rss"></i>
+							<div class="et_social_network_label"><div class="et_social_networkname">RSS</div></div>
+							<span class="et_social_overlay"></span>
+						</a>
+					</li></ul>
+				</div></div> <!-- end .et_pb_widget --><div id="text-2" class="et_pb_widget widget_text"><h4 class="widgettitle"> </h4>			<div class="textwidget"><script async="" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/f.txt"></script>
+<!-- Geeks: Site Sidebar -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5916677449126282" data-ad-slot="7371707893" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</div> <!-- end .et_pb_widget -->		<div id="et-recent-posts-2" class="et_pb_widget widget_et_recent_entries">		<h4 class="widgettitle">Recent Posts</h4>		<ul class="widget_list">
+					<li>
+									<a href="https://www.geekshangout.com/sql-use-of-with-credential-syntax-is-not-valid-for-credentials-containing-a-shared-access-signature/" title="SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/sql-banner-150x150-1473933757.png" alt="SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/sql-use-of-with-credential-syntax-is-not-valid-for-credentials-containing-a-shared-access-signature/" class="title">SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature</a>
+										<div class="post-meta">
+						<span class="updated">Aug 24, 2018</span> | <a href="https://www.geekshangout.com/category/solutions/" rel="tag">Solutions</a>, <a href="https://www.geekshangout.com/category/solutions/sql-solutions/" rel="tag">SQL</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/azure-customizing-the-point-to-site-vpn-client/" title="Azure – Customizing the Point-to-Site VPN Client" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure – Customizing the Point-to-Site VPN Client">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/azure-customizing-the-point-to-site-vpn-client/" class="title">Azure – Customizing the Point-to-Site VPN Client</a>
+										<div class="post-meta">
+						<span class="updated">Jul 10, 2018</span> | <a href="https://www.geekshangout.com/category/tips/azure/" rel="tag">Azure</a>, <a href="https://www.geekshangout.com/category/tips/" rel="tag">Tips</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/azure-site-to-site-vpn-with-a-cisco-asa-using-asdm/" title="Azure: Site-to-Site VPN with a Cisco ASA using ASDM" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure: Site-to-Site VPN with a Cisco ASA using ASDM">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/azure-site-to-site-vpn-with-a-cisco-asa-using-asdm/" class="title">Azure: Site-to-Site VPN with a Cisco ASA using ASDM</a>
+										<div class="post-meta">
+						<span class="updated">Jul 2, 2018</span> | <a href="https://www.geekshangout.com/category/tips/azure/" rel="tag">Azure</a>, <a href="https://www.geekshangout.com/category/solutions/cisco-solutions/" rel="tag">Cisco</a>, <a href="https://www.geekshangout.com/category/tips/" rel="tag">Tips</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/zabbix-monitoring-a-cisco-asa-firewall/" title="Zabbix: Monitoring a Cisco ASA Firewall" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/zabbix-banner.jpg-150x150-1529241919-1.png" alt="Zabbix: Monitoring a Cisco ASA Firewall">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/zabbix-monitoring-a-cisco-asa-firewall/" class="title">Zabbix: Monitoring a Cisco ASA Firewall</a>
+										<div class="post-meta">
+						<span class="updated">Jun 16, 2018</span> | <a href="https://www.geekshangout.com/category/tips/" rel="tag">Tips</a>, <a href="https://www.geekshangout.com/category/tips/zabbix/" rel="tag">Zabbix</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/powershell-an-example-of-how-to-save-a-queries-results-to-a-csv-file/" title="Powershell – An example of how to save a queries results to a CSV file" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/powershell_feature_image-150x150.png" alt="Powershell – An example of how to save a queries results to a CSV file">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/powershell-an-example-of-how-to-save-a-queries-results-to-a-csv-file/" class="title">Powershell – An example of how to save a queries results to a CSV file</a>
+										<div class="post-meta">
+						<span class="updated">Jun 3, 2018</span> | <a href="https://www.geekshangout.com/category/scripts/" rel="tag">Scripts</a>					</div>
+				</div>
+			</li>
+						</ul>
+		</div> <!-- end .et_pb_widget --><div id="et-recent-comments-2" class="et_pb_widget widget_et_recent_comments"><h4 class="widgettitle">Recent Comments</h4><ul id="recentcomments" class="widget_list"><li class="recentcomments"><span class="author"><a href="http://www.geekshangout.com/" rel="external nofollow" class="url">PhilEddies</a></span> <span class="date">August 24, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/php-example-get-data-active-directory-via-ldap/#comment-29265">A PHP example of how to get data from Active Directory via LDAP</a></div></li><li class="recentcomments"><span class="author">Daniel</span> <span class="date">August 24, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/php-example-get-data-active-directory-via-ldap/#comment-29255">A PHP example of how to get data from Active Directory via LDAP</a></div></li><li class="recentcomments"><span class="author">Daniel</span> <span class="date">August 23, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/php-example-get-data-active-directory-via-ldap/#comment-29201">A PHP example of how to get data from Active Directory via LDAP</a></div></li><li class="recentcomments"><span class="author">Bob</span> <span class="date">August 6, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/system-i-as400-client-access-copy-and-paste-with-ctrl-c-and-ctrl-v/#comment-27879">System i / AS400 Client Access Copy and Paste with CTRL-C and CTRL-V</a></div></li><li class="recentcomments"><span class="author">Bruno Carvalho</span> <span class="date">August 3, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/vmware-vcenter-server-detected-8005mb-of-memory-8176mb-of-memory-is-required-for-the-selected-deployment-type/#comment-27647">VMware vCenter Server detected 8005MB of memory. 8176MB of memory is required for the selected deployment type</a></div></li></ul></div> <!-- end .et_pb_widget --><div id="archives-3" class="et_pb_widget widget_archive"><h4 class="widgettitle">Archives</h4>		<label class="screen-reader-text" for="archives-dropdown-3">Archives</label>
+		<select id="archives-dropdown-3" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			
+			<option value="">Select Month</option>
+				<option value="https://www.geekshangout.com/2018/08/"> August 2018 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2018/07/"> July 2018 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2018/06/"> June 2018 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2018/03/"> March 2018 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2018/01/"> January 2018 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2017/11/"> November 2017 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2017/09/"> September 2017 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2017/07/"> July 2017 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2017/06/"> June 2017 &nbsp;(6)</option>
+	<option value="https://www.geekshangout.com/2017/04/"> April 2017 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2017/03/"> March 2017 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2017/02/"> February 2017 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2017/01/"> January 2017 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2016/12/"> December 2016 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2016/11/"> November 2016 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2016/09/"> September 2016 &nbsp;(8)</option>
+	<option value="https://www.geekshangout.com/2016/08/"> August 2016 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2016/07/"> July 2016 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2016/05/"> May 2016 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2016/04/"> April 2016 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2016/02/"> February 2016 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2016/01/"> January 2016 &nbsp;(4)</option>
+	<option value="https://www.geekshangout.com/2015/12/"> December 2015 &nbsp;(6)</option>
+	<option value="https://www.geekshangout.com/2015/11/"> November 2015 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2015/10/"> October 2015 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2015/03/"> March 2015 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2014/12/"> December 2014 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2014/10/"> October 2014 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2014/05/"> May 2014 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2014/03/"> March 2014 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2013/09/"> September 2013 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2013/08/"> August 2013 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2013/02/"> February 2013 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2012/12/"> December 2012 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2012/10/"> October 2012 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2012/08/"> August 2012 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2012/06/"> June 2012 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2012/05/"> May 2012 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2012/02/"> February 2012 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2012/01/"> January 2012 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2011/12/"> December 2011 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2011/11/"> November 2011 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2011/10/"> October 2011 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2011/09/"> September 2011 &nbsp;(4)</option>
+	<option value="https://www.geekshangout.com/2011/08/"> August 2011 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2011/07/"> July 2011 &nbsp;(5)</option>
+	<option value="https://www.geekshangout.com/2011/05/"> May 2011 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2011/04/"> April 2011 &nbsp;(4)</option>
+	<option value="https://www.geekshangout.com/2011/03/"> March 2011 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2011/02/"> February 2011 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2011/01/"> January 2011 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2010/12/"> December 2010 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2010/11/"> November 2010 &nbsp;(4)</option>
+	<option value="https://www.geekshangout.com/2010/10/"> October 2010 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2010/09/"> September 2010 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2010/08/"> August 2010 &nbsp;(4)</option>
+	<option value="https://www.geekshangout.com/2010/07/"> July 2010 &nbsp;(8)</option>
+	<option value="https://www.geekshangout.com/2010/06/"> June 2010 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2010/05/"> May 2010 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2010/04/"> April 2010 &nbsp;(5)</option>
+	<option value="https://www.geekshangout.com/2010/02/"> February 2010 &nbsp;(5)</option>
+	<option value="https://www.geekshangout.com/2010/01/"> January 2010 &nbsp;(6)</option>
+	<option value="https://www.geekshangout.com/2009/12/"> December 2009 &nbsp;(9)</option>
+	<option value="https://www.geekshangout.com/2009/11/"> November 2009 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2009/10/"> October 2009 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2009/08/"> August 2009 &nbsp;(5)</option>
+	<option value="https://www.geekshangout.com/2009/07/"> July 2009 &nbsp;(6)</option>
+	<option value="https://www.geekshangout.com/2009/06/"> June 2009 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2009/02/"> February 2009 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2009/01/"> January 2009 &nbsp;(3)</option>
+	<option value="https://www.geekshangout.com/2008/12/"> December 2008 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2008/11/"> November 2008 &nbsp;(2)</option>
+	<option value="https://www.geekshangout.com/2008/10/"> October 2008 &nbsp;(7)</option>
+	<option value="https://www.geekshangout.com/2008/09/"> September 2008 &nbsp;(1)</option>
+	<option value="https://www.geekshangout.com/2008/08/"> August 2008 &nbsp;(13)</option>
+
+		</select>
+		</div> <!-- end .et_pb_widget --><div id="tag_cloud-3" class="et_pb_widget widget_tag_cloud"><h4 class="widgettitle">Tags</h4><div class="tagcloud"><a href="https://www.geekshangout.com/tag/active-directory/" class="tag-cloud-link tag-link-4 tag-link-position-1" style="font-size: 18.309090909091pt;" aria-label="Active Directory (12 items)">Active Directory<span class="tag-link-count"> (12)</span></a>
+<a href="https://www.geekshangout.com/tag/ad/" class="tag-cloud-link tag-link-158 tag-link-position-2" style="font-size: 10.290909090909pt;" aria-label="ad (2 items)">ad<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/android/" class="tag-cloud-link tag-link-134 tag-link-position-3" style="font-size: 11.818181818182pt;" aria-label="Android (3 items)">Android<span class="tag-link-count"> (3)</span></a>
+<a href="https://www.geekshangout.com/tag/as400/" class="tag-cloud-link tag-link-66 tag-link-position-4" style="font-size: 10.290909090909pt;" aria-label="AS/400 (2 items)">AS/400<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/azure/" class="tag-cloud-link tag-link-9 tag-link-position-5" style="font-size: 13.090909090909pt;" aria-label="Azure (4 items)">Azure<span class="tag-link-count"> (4)</span></a>
+<a href="https://www.geekshangout.com/tag/backup-exec/" class="tag-cloud-link tag-link-5 tag-link-position-6" style="font-size: 8pt;" aria-label="Backup Exec (1 item)">Backup Exec<span class="tag-link-count"> (1)</span></a>
+<a href="https://www.geekshangout.com/tag/cisco/" class="tag-cloud-link tag-link-72 tag-link-position-7" style="font-size: 15.636363636364pt;" aria-label="Cisco (7 items)">Cisco<span class="tag-link-count"> (7)</span></a>
+<a href="https://www.geekshangout.com/tag/citrix/" class="tag-cloud-link tag-link-16 tag-link-position-8" style="font-size: 15.636363636364pt;" aria-label="Citrix (7 items)">Citrix<span class="tag-link-count"> (7)</span></a>
+<a href="https://www.geekshangout.com/tag/dhcp/" class="tag-cloud-link tag-link-183 tag-link-position-9" style="font-size: 10.290909090909pt;" aria-label="DHCP (2 items)">DHCP<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/exchange/" class="tag-cloud-link tag-link-167 tag-link-position-10" style="font-size: 10.290909090909pt;" aria-label="Exchange (2 items)">Exchange<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/gpo/" class="tag-cloud-link tag-link-111 tag-link-position-11" style="font-size: 10.290909090909pt;" aria-label="GPO (2 items)">GPO<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/hash/" class="tag-cloud-link tag-link-30 tag-link-position-12" style="font-size: 10.290909090909pt;" aria-label="Hash (2 items)">Hash<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/iseries/" class="tag-cloud-link tag-link-15 tag-link-position-13" style="font-size: 8pt;" aria-label="iSeries (1 item)">iSeries<span class="tag-link-count"> (1)</span></a>
+<a href="https://www.geekshangout.com/tag/kaspersky/" class="tag-cloud-link tag-link-2 tag-link-position-14" style="font-size: 8pt;" aria-label="Kaspersky (1 item)">Kaspersky<span class="tag-link-count"> (1)</span></a>
+<a href="https://www.geekshangout.com/tag/ldap/" class="tag-cloud-link tag-link-24 tag-link-position-15" style="font-size: 13.090909090909pt;" aria-label="LDAP (4 items)">LDAP<span class="tag-link-count"> (4)</span></a>
+<a href="https://www.geekshangout.com/tag/licensing/" class="tag-cloud-link tag-link-11 tag-link-position-16" style="font-size: 13.090909090909pt;" aria-label="Licensing (4 items)">Licensing<span class="tag-link-count"> (4)</span></a>
+<a href="https://www.geekshangout.com/tag/linux/" class="tag-cloud-link tag-link-6 tag-link-position-17" style="font-size: 15.636363636364pt;" aria-label="Linux (7 items)">Linux<span class="tag-link-count"> (7)</span></a>
+<a href="https://www.geekshangout.com/tag/office365/" class="tag-cloud-link tag-link-141 tag-link-position-18" style="font-size: 16.909090909091pt;" aria-label="Office365 (9 items)">Office365<span class="tag-link-count"> (9)</span></a>
+<a href="https://www.geekshangout.com/tag/opensuse/" class="tag-cloud-link tag-link-13 tag-link-position-19" style="font-size: 8pt;" aria-label="openSUSE (1 item)">openSUSE<span class="tag-link-count"> (1)</span></a>
+<a href="https://www.geekshangout.com/tag/outlook/" class="tag-cloud-link tag-link-140 tag-link-position-20" style="font-size: 14.109090909091pt;" aria-label="Outlook (5 items)">Outlook<span class="tag-link-count"> (5)</span></a>
+<a href="https://www.geekshangout.com/tag/php/" class="tag-cloud-link tag-link-34 tag-link-position-21" style="font-size: 11.818181818182pt;" aria-label="PHP (3 items)">PHP<span class="tag-link-count"> (3)</span></a>
+<a href="https://www.geekshangout.com/tag/powershell/" class="tag-cloud-link tag-link-27 tag-link-position-22" style="font-size: 18.309090909091pt;" aria-label="PowerShell (12 items)">PowerShell<span class="tag-link-count"> (12)</span></a>
+<a href="https://www.geekshangout.com/tag/rdp/" class="tag-cloud-link tag-link-116 tag-link-position-23" style="font-size: 11.818181818182pt;" aria-label="RDP (3 items)">RDP<span class="tag-link-count"> (3)</span></a>
+<a href="https://www.geekshangout.com/tag/registry/" class="tag-cloud-link tag-link-18 tag-link-position-24" style="font-size: 10.290909090909pt;" aria-label="Registry (2 items)">Registry<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/retro/" class="tag-cloud-link tag-link-155 tag-link-position-25" style="font-size: 11.818181818182pt;" aria-label="Retro (3 items)">Retro<span class="tag-link-count"> (3)</span></a>
+<a href="https://www.geekshangout.com/tag/review/" class="tag-cloud-link tag-link-163 tag-link-position-26" style="font-size: 10.290909090909pt;" aria-label="review (2 items)">review<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/rommon/" class="tag-cloud-link tag-link-71 tag-link-position-27" style="font-size: 10.290909090909pt;" aria-label="Rommon (2 items)">Rommon<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/sccm/" class="tag-cloud-link tag-link-21 tag-link-position-28" style="font-size: 11.818181818182pt;" aria-label="SCCM (3 items)">SCCM<span class="tag-link-count"> (3)</span></a>
+<a href="https://www.geekshangout.com/tag/script/" class="tag-cloud-link tag-link-8 tag-link-position-29" style="font-size: 22pt;" aria-label="Script (24 items)">Script<span class="tag-link-count"> (24)</span></a>
+<a href="https://www.geekshangout.com/tag/security/" class="tag-cloud-link tag-link-99 tag-link-position-30" style="font-size: 10.290909090909pt;" aria-label="Security (2 items)">Security<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/service/" class="tag-cloud-link tag-link-19 tag-link-position-31" style="font-size: 10.290909090909pt;" aria-label="Service (2 items)">Service<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/skype/" class="tag-cloud-link tag-link-92 tag-link-position-32" style="font-size: 10.290909090909pt;" aria-label="Skype (2 items)">Skype<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/snapshot/" class="tag-cloud-link tag-link-44 tag-link-position-33" style="font-size: 10.290909090909pt;" aria-label="Snapshot (2 items)">Snapshot<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/sql/" class="tag-cloud-link tag-link-7 tag-link-position-34" style="font-size: 17.418181818182pt;" aria-label="SQL (10 items)">SQL<span class="tag-link-count"> (10)</span></a>
+<a href="https://www.geekshangout.com/tag/suse/" class="tag-cloud-link tag-link-12 tag-link-position-35" style="font-size: 8pt;" aria-label="SUSE (1 item)">SUSE<span class="tag-link-count"> (1)</span></a>
+<a href="https://www.geekshangout.com/tag/sysprep/" class="tag-cloud-link tag-link-101 tag-link-position-36" style="font-size: 10.290909090909pt;" aria-label="Sysprep (2 items)">Sysprep<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/system-i/" class="tag-cloud-link tag-link-79 tag-link-position-37" style="font-size: 10.290909090909pt;" aria-label="System i (2 items)">System i<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/updates/" class="tag-cloud-link tag-link-56 tag-link-position-38" style="font-size: 10.290909090909pt;" aria-label="Updates (2 items)">Updates<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/vb-net/" class="tag-cloud-link tag-link-31 tag-link-position-39" style="font-size: 10.290909090909pt;" aria-label="VB.Net (2 items)">VB.Net<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/vbs/" class="tag-cloud-link tag-link-23 tag-link-position-40" style="font-size: 21.236363636364pt;" aria-label="VBS (21 items)">VBS<span class="tag-link-count"> (21)</span></a>
+<a href="https://www.geekshangout.com/tag/vmware/" class="tag-cloud-link tag-link-3 tag-link-position-41" style="font-size: 15.636363636364pt;" aria-label="VMware (7 items)">VMware<span class="tag-link-count"> (7)</span></a>
+<a href="https://www.geekshangout.com/tag/windows/" class="tag-cloud-link tag-link-10 tag-link-position-42" style="font-size: 16.272727272727pt;" aria-label="Windows (8 items)">Windows<span class="tag-link-count"> (8)</span></a>
+<a href="https://www.geekshangout.com/tag/wmi/" class="tag-cloud-link tag-link-108 tag-link-position-43" style="font-size: 10.290909090909pt;" aria-label="WMI (2 items)">WMI<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/wsus/" class="tag-cloud-link tag-link-14 tag-link-position-44" style="font-size: 10.290909090909pt;" aria-label="WSUS (2 items)">WSUS<span class="tag-link-count"> (2)</span></a>
+<a href="https://www.geekshangout.com/tag/xenapp/" class="tag-cloud-link tag-link-28 tag-link-position-45" style="font-size: 10.290909090909pt;" aria-label="XenApp (2 items)">XenApp<span class="tag-link-count"> (2)</span></a></div>
+</div> <!-- end .et_pb_widget --></div>
+
+		</div> <!-- #content-area -->
+	</div> <!-- .container -->
+	</div> <!-- #main-content -->
+
+	
+	<footer id="footer" class="footer_columns_3">
+		<div class="container">
+	<div class="et_pb_extra_row container-width-change-notify">
+						<div class="et_pb_extra_column odd column-1">
+					<div id="monarchwidget-7" class="et_pb_widget widget_monarchwidget"><h4 class="widgettitle">Follow Me</h4><div class="et_social_networks et_social_3col et_social_slide et_social_rounded et_social_top et_social_mobile_on et_social_withnetworknames et_social_outer_dark widget_monarchwidget">
+					
+					
+					<ul class="et_social_icons_container"><li class="et_social_twitter">
+						<a href="https://twitter.com/GeeksHangout" class="et_social_follow" data-social_name="twitter" data-social_type="follow" data-post_id="40" target="_blank">
+							<i class="et_social_icon et_social_icon_twitter"></i>
+							<div class="et_social_network_label"><div class="et_social_networkname">Twitter</div></div>
+							<span class="et_social_overlay"></span>
+						</a>
+					</li><li class="et_social_linkedin">
+						<a href="https://uk.linkedin.com/in/phileddies" class="et_social_follow" data-social_name="linkedin" data-social_type="follow" data-post_id="40" target="_blank">
+							<i class="et_social_icon et_social_icon_linkedin"></i>
+							<div class="et_social_network_label"><div class="et_social_networkname">LinkedIn</div></div>
+							<span class="et_social_overlay"></span>
+						</a>
+					</li><li class="et_social_rss">
+						<a href="http://www.geekshangout.com/feed/" class="et_social_follow" data-social_name="rss" data-social_type="follow" data-post_id="40" target="_blank">
+							<i class="et_social_icon et_social_icon_rss"></i>
+							<div class="et_social_network_label"><div class="et_social_networkname">RSS</div></div>
+							<span class="et_social_overlay"></span>
+						</a>
+					</li></ul>
+				</div></div> <!-- end .et_pb_widget --><div id="search-4" class="et_pb_widget widget_search"><h4 class="widgettitle"> </h4><form role="search" method="get" class="search-form" action="https://www.geekshangout.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></div> <!-- end .et_pb_widget --><div id="text-3" class="et_pb_widget widget_text"><h4 class="widgettitle">Policies</h4>			<div class="textwidget"><p><a href="https://www.geekshangout.com/privacy-policy/">Privacy Policy</a></p>
+</div>
+		</div> <!-- end .et_pb_widget -->				</div>
+								<div class="et_pb_extra_column even column-2">
+							<div id="et-recent-posts-3" class="et_pb_widget widget_et_recent_entries">		<h4 class="widgettitle">Recent Posts</h4>		<ul class="widget_list">
+					<li>
+									<a href="https://www.geekshangout.com/sql-use-of-with-credential-syntax-is-not-valid-for-credentials-containing-a-shared-access-signature/" title="SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/sql-banner-150x150-1473933757.png" alt="SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/sql-use-of-with-credential-syntax-is-not-valid-for-credentials-containing-a-shared-access-signature/" class="title">SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature</a>
+										<div class="post-meta">
+						<span class="updated">Aug 24, 2018</span> | <a href="https://www.geekshangout.com/category/solutions/" rel="tag">Solutions</a>, <a href="https://www.geekshangout.com/category/solutions/sql-solutions/" rel="tag">SQL</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/azure-customizing-the-point-to-site-vpn-client/" title="Azure – Customizing the Point-to-Site VPN Client" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure – Customizing the Point-to-Site VPN Client">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/azure-customizing-the-point-to-site-vpn-client/" class="title">Azure – Customizing the Point-to-Site VPN Client</a>
+										<div class="post-meta">
+						<span class="updated">Jul 10, 2018</span> | <a href="https://www.geekshangout.com/category/tips/azure/" rel="tag">Azure</a>, <a href="https://www.geekshangout.com/category/tips/" rel="tag">Tips</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/azure-site-to-site-vpn-with-a-cisco-asa-using-asdm/" title="Azure: Site-to-Site VPN with a Cisco ASA using ASDM" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure: Site-to-Site VPN with a Cisco ASA using ASDM">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/azure-site-to-site-vpn-with-a-cisco-asa-using-asdm/" class="title">Azure: Site-to-Site VPN with a Cisco ASA using ASDM</a>
+										<div class="post-meta">
+						<span class="updated">Jul 2, 2018</span> | <a href="https://www.geekshangout.com/category/tips/azure/" rel="tag">Azure</a>, <a href="https://www.geekshangout.com/category/solutions/cisco-solutions/" rel="tag">Cisco</a>, <a href="https://www.geekshangout.com/category/tips/" rel="tag">Tips</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/zabbix-monitoring-a-cisco-asa-firewall/" title="Zabbix: Monitoring a Cisco ASA Firewall" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/zabbix-banner.jpg-150x150-1529241919-1.png" alt="Zabbix: Monitoring a Cisco ASA Firewall">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/zabbix-monitoring-a-cisco-asa-firewall/" class="title">Zabbix: Monitoring a Cisco ASA Firewall</a>
+										<div class="post-meta">
+						<span class="updated">Jun 16, 2018</span> | <a href="https://www.geekshangout.com/category/tips/" rel="tag">Tips</a>, <a href="https://www.geekshangout.com/category/tips/zabbix/" rel="tag">Zabbix</a>					</div>
+				</div>
+			</li>
+					<li>
+									<a href="https://www.geekshangout.com/powershell-an-example-of-how-to-save-a-queries-results-to-a-csv-file/" title="Powershell – An example of how to save a queries results to a CSV file" class="widget_list_thumbnail">
+				<img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/powershell_feature_image-150x150.png" alt="Powershell – An example of how to save a queries results to a CSV file">
+			</a>								<div class="post_info">
+					<a href="https://www.geekshangout.com/powershell-an-example-of-how-to-save-a-queries-results-to-a-csv-file/" class="title">Powershell – An example of how to save a queries results to a CSV file</a>
+										<div class="post-meta">
+						<span class="updated">Jun 3, 2018</span> | <a href="https://www.geekshangout.com/category/scripts/" rel="tag">Scripts</a>					</div>
+				</div>
+			</li>
+						</ul>
+		</div> <!-- end .et_pb_widget -->				</div>
+								<div class="et_pb_extra_column even column-4">
+					<div id="et-recent-comments-3" class="et_pb_widget widget_et_recent_comments"><h4 class="widgettitle">Recent Comments</h4><ul id="recentcomments" class="widget_list"><li class="recentcomments"><span class="author"><a href="http://www.geekshangout.com/" rel="external nofollow" class="url">PhilEddies</a></span> <span class="date">August 24, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/php-example-get-data-active-directory-via-ldap/#comment-29265">A PHP example of how to get data from Active Directory via LDAP</a></div></li><li class="recentcomments"><span class="author">Daniel</span> <span class="date">August 24, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/php-example-get-data-active-directory-via-ldap/#comment-29255">A PHP example of how to get data from Active Directory via LDAP</a></div></li><li class="recentcomments"><span class="author">Daniel</span> <span class="date">August 23, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/php-example-get-data-active-directory-via-ldap/#comment-29201">A PHP example of how to get data from Active Directory via LDAP</a></div></li><li class="recentcomments"><span class="author">Bob</span> <span class="date">August 6, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/system-i-as400-client-access-copy-and-paste-with-ctrl-c-and-ctrl-v/#comment-27879">System i / AS400 Client Access Copy and Paste with CTRL-C and CTRL-V</a></div></li><li class="recentcomments"><span class="author">Bruno Carvalho</span> <span class="date">August 3, 2018</span> <div class="post-title">on <a href="https://www.geekshangout.com/vmware-vcenter-server-detected-8005mb-of-memory-8176mb-of-memory-is-required-for-the-selected-deployment-type/#comment-27647">VMware vCenter Server detected 8005MB of memory. 8176MB of memory is required for the selected deployment type</a></div></li></ul></div> <!-- end .et_pb_widget -->				</div>
+					</div>
+</div>
+		<div id="footer-bottom">
+			<div class="container">
+
+				<!-- Footer Info -->
+				<p id="footer-info">Designed by <a href="http://www.elegantthemes.com/" title="Premium WordPress Themes">Elegant Themes</a> | Powered by <a href="http://www.wordpress.org/">WordPress</a></p>
+
+				<!-- Footer Navigation -->
+								<div id="footer-nav">
+											<ul class="et-extra-social-icons" style="">
+																																																																			<li class="et-extra-social-icon twitter">
+								<a href="https://twitter.com/GeeksHangout" class="et-extra-icon et-extra-icon-background-none et-extra-icon-twitter"></a>
+							</li>
+																																																																																																																																																																																																																																																																	<li class="et-extra-social-icon linkedin">
+								<a href="https://www.linkedin.com/in/phileddies/" class="et-extra-icon et-extra-icon-background-none et-extra-icon-linkedin"></a>
+							</li>
+																																									<li class="et-extra-social-icon rss">
+								<a href="http://www.geekshangout.com/feed/" class="et-extra-icon et-extra-icon-background-none et-extra-icon-rss"></a>
+							</li>
+																																																																																																																																																																																																																																																																						</ul>
+									</div> <!-- /#et-footer-nav -->
+				
+			</div>
+		</div>
+	</footer>
+	</div> <!-- #page-container -->
+
+	
+	<div class="et_social_pin_images_outer">
+					<div class="et_social_pinterest_window">
+						<div class="et_social_modal_header"><h3>Pin It on Pinterest</h3><span class="et_social_close"></span></div>
+						<div class="et_social_pin_images" data-permalink="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/" data-title="Using VBS to Read and Set Environment Variables" data-post_id="40"><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2016/08/geeklogo2.svg&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/geeklogo2.svg" alt="Geeks Hangout"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/themes/Extra/images/star-full.svg&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="1"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/themes/Extra/images/star-full.svg&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="2"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/themes/Extra/images/star-full.svg&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="3"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/themes/Extra/images/star-full.svg&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="4"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/themes/Extra/images/star-full.svg&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/star-full.svg" alt="5"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2015/12/sql-banner-150x150-1473933757.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/sql-banner-150x150-1473933757.png" alt="SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2018/07/azure_banner-150x150.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure – Customizing the Point-to-Site VPN Client"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2018/07/azure_banner-150x150.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure: Site-to-Site VPN with a Cisco ASA using ASDM"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2018/06/zabbix-banner.jpg-150x150-1529241919-1.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/zabbix-banner.jpg-150x150-1529241919-1.png" alt="Zabbix: Monitoring a Cisco ASA Firewall"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2017/02/powershell_feature_image-150x150.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/powershell_feature_image-150x150.png" alt="Powershell – An example of how to save a queries results to a CSV file"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2015/12/sql-banner-150x150-1473933757.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/sql-banner-150x150-1473933757.png" alt="SQL – Use of WITH CREDENTIAL syntax is not valid for credentials containing a Shared Access Signature"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2018/07/azure_banner-150x150.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure – Customizing the Point-to-Site VPN Client"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2018/07/azure_banner-150x150.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/azure_banner-150x150.png" alt="Azure: Site-to-Site VPN with a Cisco ASA using ASDM"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2018/06/zabbix-banner.jpg-150x150-1529241919-1.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/zabbix-banner.jpg-150x150-1529241919-1.png" alt="Zabbix: Monitoring a Cisco ASA Firewall"><span class="et_social_pin_overlay et_social_icon"></span></a></div><div class="et_social_pin_image"><a href="http://www.pinterest.com/pin/create/button/?url=https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/&amp;media=https://www.geekshangout.com/wp-content/uploads/2017/02/powershell_feature_image-150x150.png&amp;description=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" rel="nofollow" class="et_social_icon et_social_share" data-social_name="pinterest" data-post_id="40" data-social_type="share"><img src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/powershell_feature_image-150x150.png" alt="Powershell – An example of how to save a queries results to a CSV file"><span class="et_social_pin_overlay et_social_icon"></span></a></div></div>
+					</div>
+				</div><div class="et_social_sidebar_networks et_social_visible_sidebar et_social_slideright et_social_animated et_social_rectangle et_social_sidebar_flip et_social_sidebar_withcounts et_social_mobile_on" style="top: 152px;">
+					
+					<ul class="et_social_icons_container"><li class="et_social_facebook">
+									<a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;t=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="facebook" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_facebook"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_twitter">
+									<a href="http://twitter.com/share?text=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables&amp;url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;via=GeeksHangout" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="twitter" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_twitter"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_googleplus">
+									<a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;t=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="googleplus" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_googleplus"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_linkedin">
+									<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;title=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="linkedin" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_linkedin"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_pinterest">
+									<a href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#" class="et_social_share_pinterest et_social_display_count" rel="nofollow" data-social_name="pinterest" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_pinterest"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_buffer">
+									<a href="https://bufferapp.com/add?url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;title=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="buffer" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_buffer"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_all_button">
+								<a href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#" rel="nofollow" data-location="sidebar" data-page_id="40" data-permalink="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/" data-title="Using VBS to Read and Set Environment Variables" class="et_social_open_all">
+									<i class="et_social_icon et_social_icon_all_button"></i>
+									<span class="et_social_overlay"></span>
+								</a>
+							</li></ul>
+					<span class="et_social_hide_sidebar et_social_icon"></span>
+				</div><div class="et_social_mobile_button"></div>
+					<div class="et_social_mobile et_social_fadein">
+						<div class="et_social_heading">Share This</div>
+						<span class="et_social_close"></span>
+						<div class="et_social_networks et_social_simple et_social_rounded et_social_left et_social_withcounts" style="display: none; max-height: 45px; height: 45px;">
+							<ul class="et_social_icons_container"><li class="et_social_facebook">
+									<a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;t=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="facebook" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_facebook"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Facebook</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_twitter">
+									<a href="http://twitter.com/share?text=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables&amp;url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;via=GeeksHangout" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="twitter" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_twitter"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Twitter</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_googleplus">
+									<a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;t=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="googleplus" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_googleplus"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Google+</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_linkedin">
+									<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;title=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="linkedin" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_linkedin"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">LinkedIn</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_pinterest">
+									<a href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#" class="et_social_share_pinterest et_social_display_count" rel="nofollow" data-social_name="pinterest" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_pinterest"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Pinterest</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_buffer">
+									<a href="https://bufferapp.com/add?url=https%3A%2F%2Fwww.geekshangout.com%2Fusing-vbs-to-read-and-set-environment-variables%2F&amp;title=Using%20VBS%20to%20Read%20and%20Set%20Environment%20Variables" class="et_social_share et_social_display_count" rel="nofollow" data-social_name="buffer" data-post_id="40" data-social_type="share" data-location="sidebar" data-min_count="1">
+										<i class="et_social_icon et_social_icon_buffer"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Buffer</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_all_button">
+								<a href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#" rel="nofollow" data-location="sidebar" data-page_id="40" data-permalink="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/" data-title="Using VBS to Read and Set Environment Variables" class="et_social_open_all">
+									<i class="et_social_icon et_social_icon_all_button"></i>
+									<span class="et_social_overlay"></span>
+								</a>
+							</li></ul>
+						</div>
+					</div>
+					<div class="et_social_mobile_overlay"></div>	<script type="text/javascript">
+		var et_animation_data = [];
+	</script>
+	<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/idle-timer.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var monarchSettings = {"ajaxurl":"https:\/\/www.geekshangout.com\/wp-admin\/admin-ajax.php","pageurl":"https:\/\/www.geekshangout.com\/using-vbs-to-read-and-set-environment-variables\/","stats_nonce":"3c99b67a0a","share_counts":"d54742769b","follow_counts":"1e6813ebdc","total_counts":"be829d3225","media_single":"fd913c373f","media_total":"d64b965884","generate_all_window_nonce":"cfdf8a99f2","no_img_message":"No images available for sharing on this page"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/custom.js.download"></script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/masonry.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var EXTRA = {"images_uri":"https:\/\/www.geekshangout.com\/wp-content\/themes\/Extra\/images\/","ajaxurl":"https:\/\/www.geekshangout.com\/wp-admin\/admin-ajax.php","your_rating":"Your Rating:","item_in_cart_count":"%d Item in Cart","items_in_cart_count":"%d Items in Cart","item_count":"%d Item","items_count":"%d Items","rating_nonce":"f724a9ae4a","timeline_nonce":"0c485fe56c","blog_feed_nonce":"3d04b277d6","error":"There was a problem, please try again.","contact_error_name_required":"Name field cannot be empty.","contact_error_email_required":"Email field cannot be empty.","contact_error_email_invalid":"Please enter a valid email address.","is_ab_testing_active":"","is_cache_plugin_active":"yes"};
+var et_shortcodes_strings = {"previous":"Previous","next":"Next"};
+var et_pb_custom = {"ajaxurl":"https:\/\/www.geekshangout.com\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/www.geekshangout.com\/wp-content\/themes\/Extra\/images","builder_images_uri":"https:\/\/www.geekshangout.com\/wp-content\/themes\/Extra\/includes\/builder\/images","et_frontend_nonce":"aa9276fe93","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"c3eb39380b","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","is_builder_plugin_used":"","ignore_waypoints":"no","is_divi_theme_used":"","widget_search_selector":".widget_search","is_ab_testing_active":"","page_id":"40","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"yes","is_shortcode_tracking":""};
+var et_pb_box_shadow_elements = [];
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/scripts.min.js.download"></script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/common.js.download"></script>
+<script type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/wp-embed.min.js.download"></script>
+<script async="async" type="text/javascript" src="./Using VBS to Read and Set Environment Variables - Geeks Hangout_files/form.js.download"></script>
+
+			<div id="cookie-notice" role="banner" class="cn-bottom bootstrap" style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 0); visibility: visible;"><div class="cookie-notice-container"><span id="cn-notice-text">We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.</span><a href="https://www.geekshangout.com/using-vbs-to-read-and-set-environment-variables/#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button bootstrap button">Ok</a><a href="https://www.geekshangout.com/privacy-policy/" target="_blank" id="cn-more-info" class="cn-more-info cn-button bootstrap button">Read more</a>
+				</div>
+				
+			</div>
+
+
+<!-- Dynamic page generated in 1.752 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2018-08-24 14:58:33 -->
+
+<!-- Compression = gzip --></body></html>
