@@ -17,7 +17,7 @@ ReDim preserve suffix(20)
 
 For Each objsourceFolder in colsourceFolders									'finding all subfolders
 	suffix(i) = right(objsourceFolder,5)
-	'WScript.echo objsourceFolder												'subfolders
+	'WScript.echo objsourceFolder												'Name of subfolders
 	i=i+1
 	suffixLen= suffixLen+1														'finding number of subfolders
 Next
