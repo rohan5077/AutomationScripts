@@ -1,13 +1,14 @@
 Option Explicit
 
-dim objFSO, objsourceFolder, colsourceFolders, source, destination, i, suffixLen
+dim objFSO, objsourceFolder, colsourceFolders, source, destination, i, suffixLen, latestFolderName, objShell, objEnv
 dim suffix(), p(), q(), r()																	'version 2.0.1 as p.q.r
 
 i=0
 suffixLen = -1
 
-source = "\\192.168.1.128\zip2"
-destination = "c:/users/rohans/desktop/python"
+'source = "\\192.168.1.128\zip2"
+'destination = "c:/users/rohans/desktop/python"
+source = "c:/users/rohans/desktop/Python"
 
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objsourceFolder = objFSO.GetFolder(source)
@@ -17,7 +18,7 @@ ReDim preserve suffix(20)
 
 For Each objsourceFolder in colsourceFolders									'finding all subfolders
 	suffix(i) = right(objsourceFolder,5)
-	'WScript.echo objsourceFolder												'Name of subfolders
+	WScript.echo objsourceFolder												'Name of subfolders
 	i=i+1
 	suffixLen= suffixLen+1														'finding number of subfolders
 Next
@@ -72,13 +73,16 @@ next
 
 'WScript.echo "R is : " & r(1)
 
-MsgBox "Latest Version is : " & p(1) & "." & q(1) & "." & r(1), 0 , "Version"
+latestFolderName = p(1) & "." & q(1) "." & r(1)
+MsgBox "Latest Version is: " & latestFolderName
+
+'MsgBox "Latest Version is : " & p(1) & "." & q(1) & "." & r(1), 0 , "Version"
 'WScript.echo q(1)
 'WScript.echo r(1)
 
 'WScript.echo "Latest folder path is : " & source & "\bb-slv-" & p(1) & "." & q(1) & "." & r(1)
-objFSO.CopyFolder source & "\bb-slv-" & p(1) & "." & q(1) & "." & r(1) , destination & "\"
-MsgBox "Folder is copied & pasted to " & destination, 0, "Transfer Info"
+'objFSO.CopyFolder source & "\bb-slv-" & p(1) & "." & q(1) & "." & r(1) , destination & "\"
+'MsgBox "Folder is copied & pasted to " & destination, 0, "Transfer Info"
 
 
 

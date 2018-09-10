@@ -7,8 +7,9 @@ NoOfFilesAndFolders=0
 NoOfFiles=5
 filename="content.txt"
 i=0
+latestFolder=""
 
-#version is represented as p.q.r
+#version is represented as bb-slv-p.q.r
 
 p=[]
 q=[]
@@ -16,7 +17,7 @@ r=[]
 
 while IFS='' read -r line;
 do
-	if [ "${line%%v*}" == "bb-sl" ]; then
+	if [ "${line%%v*}" == "bb-sl" ]; then									#Search for folderName start from bb-slv
 		#echo $line
 		folderName[$NoOfFilesAndFolders]=$line
 		NoOfFilesAndFolders=$((NoOfFilesAndFolders+1))
@@ -40,17 +41,17 @@ done < "$filename"
 echo "Total No. of bb-slv folders: "$NoOfFilesAndFolders
 #echo ${folderName[0]:7:5}
 
-for ((i=0 ; i<NoOfFilesAndFolders ; i++))
+for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#extract version from FolderName
 do
-	p[$i]=${folderName[$i]:7:1}
-	q[$i]=${folderName[$i]:9:1}
-	r[$i]=${folderName[$i]:11:1}
+	p[$i]=${folderName[$i]:7:1}										#extract p value from folderName
+	q[$i]=${folderName[$i]:9:1}										#extract q value from folderName
+	r[$i]=${folderName[$i]:11:1}										#extract r value from folderName
 	#echo ${p[$i]}
 	#echo ${q[$i]}
 	#echo ${r[$i]}
 done
 
-for ((i=0 ; i<NoOfFilesAndFolders ; i++))
+for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
 do
 	if [ "${p[1]}" -gt "${p[$i]}" ] | [ "${p[1]}" == "${p[$i]}" ];
 	then
@@ -64,7 +65,7 @@ done
 
 #echo "P: Out"
 
-for ((i=0 ; i<NoOfFilesAndFolders ; i++))
+for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest q value
 do
 	if [ "${q[1]}" -gt "${q[$i]}" ] | [ "${q[1]}" == "${q[$i]}" ];
 	then
@@ -78,7 +79,7 @@ done
 
 #echo "Q: Out"
 
-for ((i=0 ; i<NoOfFilesAndFolders ; i++))
+for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest r value
 do
 	if [ "${r[1]}" -gt "${r[$i]}" ] | [ "${r[1]}" == "${r[$i]}" ];
 	then
@@ -92,6 +93,12 @@ done
 
 #echo "R: Out"
 
-echo "Latest Version: "${p[1]}"."${q[1]}"."${r[1]}
+latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}								#latestFolderName
 
-scp -r -P 22 /home/debian/ShellScripts/bb-slv-${p[1]}.${q[1]}.${r[1]} meditab@192.168.0.11:~/Desktop/rohantest/bb-slv-${p[1]}.${q[1]}.${r[1]}
+echo $latestFolder												#latestFolderName
+
+echo "Latest Version: "$latestFolder										#latestFolderName
+
+#scp -r -P 22 /home/debian/ShellScripts/bb-slv-${p[1]}.${q[1]}.${r[1]} meditab@192.168.0.11:~/Desktop/rohantest/bb-slv-${p[1]}.${q[1]}.${r[1]}
+
+python /home/debian/ShellScripts/$latestFolder/hello.py								#python command to run the code
