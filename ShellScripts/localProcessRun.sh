@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ssh lalit@192.168.0.15 'bash -s' < remotePullScript.sh
+
 ls > content.txt
 
 folderName=[]

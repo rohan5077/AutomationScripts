@@ -107,10 +107,12 @@ then
 	echo "No Update Available"
 else
 	echo "New Folder version is found, Folder Updated"
-	pkill -9 python
-	echo "Process Killed"
+	#pkill -9 python
+	#echo "Process Killed"
 	#python /home/debian/ShellScripts/$latestFolder/hello.py
-	echo "New Process Started"
+	#echo "New Process Started"
+
+	scp -r -P 22 $latestFolder debian@192.168.0.9:~/ShellScripts/$latestFolder 
 fi
 
 #scp -r -P 22 /home/debian/ShellScripts/bb-slv-${p[1]}.${q[1]}.${r[1]} meditab@192.168.0.11:~/Desktop/rohantest/bb-slv-${p[1]}.${q[1]}.${r[1]}
