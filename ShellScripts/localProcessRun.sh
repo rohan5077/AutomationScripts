@@ -2,6 +2,8 @@
 
 ssh lalit@192.168.0.15 'bash -s' < remotePullScript.sh
 
+sleep 5
+
 ls > content.txt
 
 folderName=[]
@@ -55,7 +57,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
 do
-	if [ "${p[1]}" > "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
+	if [ "${p[1]}" \> "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
 	then
 		p[1]=${p[1]};
 		#echo "p: true condition"
@@ -69,7 +71,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest q value
 do
-	if [ "${q[1]}" > "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
+	if [ "${q[1]}" \> "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
 	then
 		q[1]=${q[1]};
 		#echo "q: true condition"
@@ -83,7 +85,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest r value
 do
-	if [ "${r[1]}" > "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
+	if [ "${r[1]}" \> "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
 	then
 		r[1]=${q[1]};
 		#echo "r: true condition"
@@ -99,6 +101,8 @@ latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}								#latestFolderName
 
 prevFolderName=$(tail -1 prevFolderName.txt | head -1)
 
+echo "FolderName: "$prevFolderName
+
 echo $latestFolder > prevFolderName.txt												#latestFolderName
 
 echo "Previous Folder Version: "$prevFolderName
@@ -109,13 +113,9 @@ then
 	echo "No Update Available"
 else
 	echo "New Folder version is found, Folder Updated"
-	pkill -9 python
+#	pkill -9 python
 	echo "Process Killed"
-	#python /home/debian/ShellScripts/$latestFolder/hello.py
+#	python /home/debian/ShellScripts/$latestFolder/hello.py
 	echo "New Process Started"
 fi
-
-#scp -r -P 22 /home/debian/ShellScripts/bb-slv-${p[1]}.${q[1]}.${r[1]} meditab@192.168.0.11:~/Desktop/rohantest/bb-slv-${p[1]}.${q[1]}.${r[1]}
-
-#python /home/debian/ShellScripts/$latestFolder/hello.py								#python command to run the code
 

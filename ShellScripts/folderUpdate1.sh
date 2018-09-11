@@ -53,7 +53,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
 do
-	if [ "${p[1]}" > "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
+	if [ "${p[1]}" \> "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
 	then
 		p[1]=${p[1]};
 		#echo "p: true condition"
@@ -67,7 +67,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest q value
 do
-	if [ "${q[1]}" > "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
+	if [ "${q[1]}" \> "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
 	then
 		q[1]=${q[1]};
 		#echo "q: true condition"
@@ -81,7 +81,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest r value
 do
-	if [ "${r[1]}" > "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
+	if [ "${r[1]}" \> "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
 	then
 		r[1]=${q[1]};
 		#echo "r: true condition"
@@ -91,7 +91,7 @@ do
 	fi
 done
 
-#echo "R: Out"
+echo "R: Out"${r[1]}
 
 latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}								#latestFolderName
 
@@ -116,4 +116,5 @@ fi
 #scp -r -P 22 /home/debian/ShellScripts/bb-slv-${p[1]}.${q[1]}.${r[1]} meditab@192.168.0.11:~/Desktop/rohantest/bb-slv-${p[1]}.${q[1]}.${r[1]}
 
 #python /home/debian/ShellScripts/$latestFolder/hello.py								#python command to run the code
+
 

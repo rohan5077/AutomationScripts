@@ -53,7 +53,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
 do
-	if [ "${p[1]}" > "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
+	if [ "${p[1]}" \> "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
 	then
 		p[1]=${p[1]};
 		#echo "p: true condition"
@@ -67,7 +67,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest q value
 do
-	if [ "${q[1]}" > "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
+	if [ "${q[1]}" \> "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
 	then
 		q[1]=${q[1]};
 		#echo "q: true condition"
@@ -81,7 +81,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest r value
 do
-	if [ "${r[1]}" > "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
+	if [ "${r[1]}" \> "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
 	then
 		r[1]=${q[1]};
 		#echo "r: true condition"
