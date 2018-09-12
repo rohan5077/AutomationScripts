@@ -22,15 +22,15 @@ r=[]
 while IFS='' read -r line;
 do
 	if [ "${line%%v*}" == "bb-sl" ]; then									#Search for folderName start from bb-slv
-		#echo $line
+#		echo $line
 		folderName[$NoOfFilesAndFolders]=$line
 		NoOfFilesAndFolders=$((NoOfFilesAndFolders+1))
 #		echo "Array Index is $NoOfFilesAndFolders: " ${folderName[$NoOfFilesAndFolders]}
 	fi
-	#echo ${folderName[$NoOfFilesAndFolders]}
-	#echo "Array index is $NoOfFilesAndFolders: " ${folderName[$NoOfFilesAndFolders]}
-	#NoOfFilesAndFolders=$((NoOfFilesAndFolders+1))
-	#echo $NoOfFilesAndFolders
+#	echo ${folderName[$NoOfFilesAndFolders]}
+#	echo "Array index is $NoOfFilesAndFolders: " ${folderName[$NoOfFilesAndFolders]}
+#	NoOfFilesAndFolders=$((NoOfFilesAndFolders+1))
+#	echo $NoOfFilesAndFolders
 done < "$filename"
 
 #echo "No. of Files and Folders: "$NoOfFilesAndFolders
@@ -50,9 +50,9 @@ do
 	p[$i]=${folderName[$i]:7:1}										#extract p value from folderName
 	q[$i]=${folderName[$i]:9:1}										#extract q value from folderName
 	r[$i]=${folderName[$i]:11:1}										#extract r value from folderName
-	#echo ${p[$i]}
-	#echo ${q[$i]}
-	#echo ${r[$i]}
+#	echo ${p[$i]}
+#	echo ${q[$i]}
+#	echo ${r[$i]}
 done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
@@ -60,10 +60,10 @@ do
 	if [ "${p[1]}" \> "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
 	then
 		p[1]=${p[1]};
-		#echo "p: true condition"
+#		echo "p: true condition"
 	else
 		p[1]=${p[$i]};
-		#echo "p: false condition"
+#		echo "p: false condition"
 	fi
 done
 
@@ -74,10 +74,10 @@ do
 	if [ "${q[1]}" \> "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
 	then
 		q[1]=${q[1]};
-		#echo "q: true condition"
+#		echo "q: true condition"
 	else
 		q[1]=${q[$i]};
-		#echo "q: false condition"
+#		echo "q: false condition"
 	fi
 done
 
@@ -88,10 +88,10 @@ do
 	if [ "${r[1]}" \> "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
 	then
 		r[1]=${q[1]};
-		#echo "r: true condition"
+#		echo "r: true condition"
 	else
 		r[1]=${r[$i]}
-		#echo "r: false condition"
+#		echo "r: false condition"
 	fi
 done
 
@@ -117,5 +117,6 @@ else
 	echo "Process Killed"
 #	python /home/debian/ShellScripts/$latestFolder/hello.py
 	echo "New Process Started"
+	ls -d $latestFolder -lt >> fileTransferLog.txt
 fi
 

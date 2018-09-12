@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd sharefolder
 ls > content.txt
 
 folderName=[]

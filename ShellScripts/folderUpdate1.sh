@@ -105,12 +105,14 @@ echo "Latest Folder Version:   "$latestFolder
 if [ "$prevFolderName" = "$latestFolder" ];										#latestFolderName
 then
 	echo "No Update Available"
+	echo "$(date)- No Update was Available" >> fileTransferLog.txt
 else
 	echo "New Folder version is found, Folder Updated"
 	pkill -9 python
 	echo "Process Killed"
 	#python /home/debian/ShellScripts/$latestFolder/hello.py
 	echo "New Process Started"
+	ls -d $latestFolder -lt >> fileTransferLog.txt
 fi
 
 #scp -r -P 22 /home/debian/ShellScripts/bb-slv-${p[1]}.${q[1]}.${r[1]} meditab@192.168.0.11:~/Desktop/rohantest/bb-slv-${p[1]}.${q[1]}.${r[1]}
