@@ -57,12 +57,12 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
 do
-	if [ "${p[1]}" \> "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
+	if [ "${p[0]}" \> "${p[$i]}" ] | [ "${p[0]}" = "${p[$i]}" ];
 	then
-		p[1]=${p[1]};
+		p[0]=${p[0]};
 #		echo "p: true condition"
 	else
-		p[1]=${p[$i]};
+		p[0]=${p[$i]};
 #		echo "p: false condition"
 	fi
 done
@@ -71,12 +71,12 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest q value
 do
-	if [ "${q[1]}" \> "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
+	if [ "${q[0]}" \> "${q[$i]}" ] | [ "${q[0]}" = "${q[$i]}" ];
 	then
-		q[1]=${q[1]};
+		q[0]=${q[0]};
 #		echo "q: true condition"
 	else
-		q[1]=${q[$i]};
+		q[0]=${q[$i]};
 #		echo "q: false condition"
 	fi
 done
@@ -85,19 +85,19 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest r value
 do
-	if [ "${r[1]}" \> "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
+	if [ "${r[0]}" \> "${r[$i]}" ] | [ "${r[0]}" = "${r[$i]}" ];
 	then
-		r[1]=${q[1]};
+		r[0]=${r[0]};
 #		echo "r: true condition"
 	else
-		r[1]=${r[$i]}
+		r[0]=${r[$i]}
 #		echo "r: false condition"
 	fi
 done
 
 #echo "R: Out"
 
-latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}								#latestFolderName
+latestFolder="bb-slv-"${p[0]}"."${q[0]}"."${r[0]}								#latestFolderName
 
 prevFolderName=$(tail -1 prevFolderName.txt | head -1)
 
