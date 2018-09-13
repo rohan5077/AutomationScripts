@@ -94,15 +94,20 @@ done
 
 #echo "R: Out"
 
-latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}								#latestFolderName
+latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}																			#latestFolderName
 
 prevFolderName=$(tail -1 prevFolderName.txt | head -1)
 
-echo $latestFolder > prevFolderName.txt												#latestFolderName
+echo $latestFolder > prevFolderName.txt																						#latestFolderName
+
+scp -P 22 /home/debian/sharefolder/prevFolderName.txt debian@192.168.0.9:~/ShellScripts/remoteServerLatestFolder.txt		#send latestfolder update to client
+echo "Latest Folder on RemoteServer is transerred."
+sleep 5	
+
 echo "Previous Folder Version: "$prevFolderName
 echo "Latest Folder Version:   "$latestFolder
 
-if [ "$prevFolderName" = "$latestFolder" ];										#latestFolderName
+if [ "$prevFolderName" = "$latestFolder" ];																					#latestFolderName
 then
 	echo "No Update Available"
 else
