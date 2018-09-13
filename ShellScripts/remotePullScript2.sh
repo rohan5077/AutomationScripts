@@ -49,54 +49,54 @@ do
 	p[$i]=${folderName[$i]:7:1}										#extract p value from folderName
 	q[$i]=${folderName[$i]:9:1}										#extract q value from folderName
 	r[$i]=${folderName[$i]:11:1}										#extract r value from folderName
-	#echo ${p[$i]}
-	#echo ${q[$i]}
-	#echo ${r[$i]}
+#	echo ${p[$i]}
+#	echo ${q[$i]}
+#	echo ${r[$i]}
 done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
 do
-	if [ "${p[1]}" \> "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
+	if [ "${p[0]}" \> "${p[$i]}" ] | [ "${p[0]}" = "${p[$i]}" ];
 	then
-		p[1]=${p[1]};
-		#echo "p: true condition"
+		p[0]=${p[0]};
+		#echo "p: true condition: ${p[i]}"
 	else
-		p[1]=${p[$i]};
-		#echo "p: false condition"
+		p[0]=${p[$i]};
+		#echo "p: false condition: ${p[i]}"
 	fi
 done
 
-#echo "P: Out"${p[1]}
+#echo "P: Out ${p[1]}"
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest q value
 do
-	if [ "${q[1]}" \> "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
+	if [ "${q[0]}" \> "${q[$i]}" ] | [ "${q[0]}" = "${q[$i]}" ];
 	then
-		q[1]=${q[1]};
-		#echo "q: true condition"
+		q[0]=${q[0]};
+		#echo "q: true condition: ${q[$i]}"
 	else
-		q[1]=${q[$i]};
-		#echo "q: false condition"
+		q[0]=${q[$i]};
+		#echo "q: false condition: ${q[$i]}"
 	fi
 done
 
-#echo "Q: Out ${q[2]}"
+#echo "Q: Out ${q[1]}"
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest r value
 do
-	if [ "${r[1]}" \> "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
+	if [ "${r[0]}" \> "${r[$i]}" ] | [ "${r[0]}" = "${r[$i]}" ];
 	then
-		r[1]=${q[1]};
-		#echo "r: true condition"
+		r[0]=${r[0]};
+		#echo "r: true condition: ${r[$i]}"
 	else
-		r[1]=${r[$i]}
-		#echo "r: false condition"
+		r[0]=${r[$i]}
+		#echo "r: false condition: ${r[$i]}"
 	fi
 done
 
-#echo "R: Out"
+#echo "R: Out ${r[1]}"
 
-latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}																			#latestFolderName
+latestFolder="bb-slv-"${p[0]}"."${q[0]}"."${r[0]}																			#latestFolderName
 
 #echo "$latestFolder"
 
