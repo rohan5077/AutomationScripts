@@ -9,12 +9,20 @@ latestFolder=""
 prevFolderName=""
 filename="content.txt"
 remoteServerLatestFolder=""
-remoteServerScript="remotePullScript2.sh"
-remoteHostName="debian@192.168.0.10"
+remoteServerScript="remotePullScript2.sh"												#shell script which will run on remote server
+remoteHostName="debian@192.168.0.10"													#Remote server with localhost
 
 #INITIALIZATION ENDS
 
-ssh $remoteHostName 'bash -s' < $remoteServerScript
+ssh $remoteHostName 'bash -s' < $remoteServerScript										#command to run script on remote server
+
+if [ "$?" = 0 ];
+then
+    echo "OK"
+else
+    echo "$(date): Server was not reachable." >>  fileTransferLog.txt
+	exit 1																				#stop the script if scp fails
+fi
 
 sleep 5
 
