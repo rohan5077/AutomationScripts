@@ -14,11 +14,13 @@ remoteHostName="debian@192.168.0.10"
 
 #INITIALIZATION ENDS
 
-ls > $filename
-
 ssh $remoteHostName 'bash -s' < $remoteServerScript
 
 sleep 5
+
+echo "			Local Host Update"
+
+ls > $filename
 
 #version is represented as bb-slv-p.q.r
 
@@ -54,9 +56,9 @@ echo "Total No. of bb-slv folders: "$NoOfFilesAndFolders
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#extract version from FolderName
 do
-	p[$i]=${folderName[$i]:7:1}										#extract p value from folderName
-	q[$i]=${folderName[$i]:9:1}										#extract q value from folderName
-	r[$i]=${folderName[$i]:11:1}										#extract r value from folderName
+	p[$i]=${folderName[$i]:7:1}												#extract p value from folderName
+	q[$i]=${folderName[$i]:9:1}												#extract q value from folderName
+	r[$i]=${folderName[$i]:11:1}											#extract r value from folderName
 #	echo ${p[$i]}
 #	echo ${q[$i]}
 #	echo ${r[$i]}
@@ -105,9 +107,13 @@ done
 #echo "R: Out"
 
 latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}								#latestFolderName
+echo "$latestFolder"
 
-prevFolderName=$(tail -1 prevFolderName.txt | head -1)
-remoteServerLatestFolder=$(tail -1 remoteServerLatestFolder.txt | head -1)
+#prevFolderName=$(tail -1 prevFolderName.txt | head -1)
+#remoteServerLatestFolder=$(tail -1 remoteServerLatestFolder.txt | head -1)
+
+prevFolderName=$(tail -n 1 prevFolderName.txt)
+remoteServerLatestFolder=$(tail -n 1 remoteServerLatestFolder.txt)
 
 # if [ "$latestFolder" == "$remoteServerLatestFolder" ];
 # then
@@ -116,9 +122,9 @@ remoteServerLatestFolder=$(tail -1 remoteServerLatestFolder.txt | head -1)
 	
 # fi
 
-echo "Previous FolderName: "$prevFolderName
+#echo "Previous FolderName: "$prevFolderName
 
-echo $latestFolder > prevFolderName.txt												#latestFolderName
+echo "$latestFolder" > prevFolderName.txt												#latestFolderName
 
 echo "Previous Folder Version: "$prevFolderName
 echo "Latest Folder Version:   "$latestFolder
@@ -129,20 +135,31 @@ then
 	if [ "$remoteServerLatestFolder" == "$latestFolder" ];
 	then
 		echo "No Update Available"
+		echo "$(date)- No Update was Available" >> fileTransferLog.txt
 	else
 		scp -r -P 22 $remoteHostName:~/sharefolder/$remoteServerLatestFolder $remoteServerLatestFolder
 #		pkill -9 python
 		echo "Process Killed"
 #		python /home/debian/ShellScripts/$remoteServerLatestFolder/hello.py
-		echo "New Process Started of folder: "$remoteServerLatestFolder
-		ls -d $latestFolder -lt >> fileTransferLog.txt
+		echo "New Process Started of Remotefolder: "$remoteServerLatestFolder
+		ls -d $remoteServerLatestFolder -lt >> fileTransferLog.txt
 	fi
 else
-	echo "New Folder version is found, Folder Updated"
-#	pkill -9 python
-	echo "Process Killed"
-#	python /home/debian/ShellScripts/$latestFolder/hello.py
-	echo "New Process Started of folder: "$latestFolder
-	ls -d $latestFolder -lt >> fileTransferLog.txt
+	if [ "$remoteServerLatestFolder" == "$prevFolderName" ];
+	then
+		scp -r -P 22 $remoteHostName:~/sharefolder/$remoteServerLatestFolder $remoteServerLatestFolder
+#		pkill -9 python
+		echo "Process Killed"
+#		python /home/debian/ShellScripts/$remoteServerLatestFolder/hello.py
+		echo "New Process Started of Remotefolder: "$remoteServerLatestFolder
+		ls -d $remoteServerLatestFolder -lt >> fileTransferLog.txt
+	else
+		echo "New Folder version is found, Folder Updated"
+	#	pkill -9 python
+		echo "Process Killed"
+	#	python /home/debian/ShellScripts/$latestFolder/hello.py
+		echo "New Process Started of Localfolder: "$latestFolder
+		ls -d $latestFolder -lt >> fileTransferLog.txt
+	fi
 fi
 

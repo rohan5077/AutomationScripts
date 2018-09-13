@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd sharefolder
 ls > content.txt
 
 folderName=[]
@@ -11,8 +10,6 @@ latestFolder=""
 prevFolderName=""
 
 #version is represented as bb-slv-p.q.r
-
-echo " 			Remote Server Update"
 
 p=[]
 q=[]
@@ -56,7 +53,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest p value
 do
-	if [ "${p[1]}" \> "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
+	if [ "${p[1]}" > "${p[$i]}" ] | [ "${p[1]}" = "${p[$i]}" ];
 	then
 		p[1]=${p[1]};
 		#echo "p: true condition"
@@ -70,7 +67,7 @@ done
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest q value
 do
-	if [ "${q[1]}" \> "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
+	if [ "${q[1]}" > "${q[$i]}" ] | [ "${q[1]}" = "${q[$i]}" ];
 	then
 		q[1]=${q[1]};
 		#echo "q: true condition"
@@ -80,11 +77,11 @@ do
 	fi
 done
 
-#echo "Q: Out ${q[2]}"
+#echo "Q: Out"
 
 for ((i=0 ; i<NoOfFilesAndFolders ; i++))									#loop for fetching greatest r value
 do
-	if [ "${r[1]}" \> "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
+	if [ "${r[1]}" > "${r[$i]}" ] | [ "${r[1]}" = "${r[$i]}" ];
 	then
 		r[1]=${q[1]};
 		#echo "r: true condition"
@@ -96,24 +93,16 @@ done
 
 #echo "R: Out"
 
-latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}																			#latestFolderName
+latestFolder="bb-slv-"${p[1]}"."${q[1]}"."${r[1]}								#latestFolderName
 
-#echo "$latestFolder"
+prevFolderName=$(tail -1 prevFolderName.txt | head -1)
 
-#prevFolderName=$(tail -1 prevFolderName.txt | head -1)
-prevFolderName=$(tail -n 1 prevFolderName.txt)
-
-echo $latestFolder > prevFolderName.txt																						#latestFolderName
-echo $latestFolder > remoteServerLatestFolder.txt																						#latestFolderName
-
-scp -P 22 /home/debian/sharefolder/remoteServerLatestFolder.txt debian@192.168.0.9:~/ShellScripts/remoteServerLatestFolder.txt		#send latestfolder update to client
-echo "Latest Folder on RemoteServer is transerred."
-sleep 5	
+echo $latestFolder > prevFolderName.txt												#latestFolderName
 
 echo "Previous Folder Version: "$prevFolderName
 echo "Latest Folder Version:   "$latestFolder
 
-if [ "$prevFolderName" = "$latestFolder" ];																					#latestFolderName
+if [ "$prevFolderName" = "$latestFolder" ];										#latestFolderName
 then
 	echo "No Update Available"
 else
@@ -124,8 +113,6 @@ else
 	#echo "New Process Started"
 
 	scp -r -P 22 $latestFolder debian@192.168.0.9:~/ShellScripts/$latestFolder 
-	echo "$latestFolder Transferred."
-	sleep 5
 fi
 
 #scp -r -P 22 /home/debian/ShellScripts/bb-slv-${p[1]}.${q[1]}.${r[1]} meditab@192.168.0.11:~/Desktop/rohantest/bb-slv-${p[1]}.${q[1]}.${r[1]}
