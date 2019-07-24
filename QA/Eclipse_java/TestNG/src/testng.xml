@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNG Tutorial Suite">
+	<test name="Different testng feature test">
+	
+		<classes>
+			<class name="com.testng.test.ExceptionTimeOutTest"/>
+			<class name="com.testng.test.GoogleTest"/>
+			<class name="com.testng.test.GoogleTitleTest"/>
+			<class name="com.testng.test.InvocationCountTest"/>
+			<class name="com.testng.test.TestNGBasics"/>
+			<class name="com.testng.test.TestNgFeatures"/>
+		
+		</classes>
+	
+	
+	</test>
+</suite>

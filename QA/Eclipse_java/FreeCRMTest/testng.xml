@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNG Tutorial Suite">
+	
+	<test name="LoginPage">	
+		<classes>
+			<class name="com.crm.qa.testcases.LoginPageTest"/>
+		</classes>
+	</test>
+	<test name="HomePageTest">
+		<classes>
+			<class name="com.crm.qa.testcases.HomePageTest"/>
+		</classes>
+	</test >
+	<test name="DealsPageTest">
+		<classes>
+			<class name="com.crm.qa.testcases.DealsPageTest"/>		
+		</classes>
+	</test>
+
+</suite>
